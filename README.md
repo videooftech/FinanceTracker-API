@@ -15,15 +15,8 @@ This is the backend API for the **Finance Tracker** application, built with **AS
 ---
 
 ## 📁 Project Structure
-finance-tracker-api/ 
-  ├── Controllers/ │   
-    ├── IncomeController.cs 
-    |── ExpenseController.cs 
-  ├── Models/ │   
-    ├── Income.cs │   
-    |── Expense.cs 
-  ├── Program.cs 
-  |── ...
+finance-tracker-api/ ├── Controllers/ │   ├── IncomeController.cs │   └── ExpenseController.cs ├── Models/ │   ├── Income.cs │   └── Expense.cs ├── Program.cs └── ...
+
 ---
 
 ## 🚀 Getting Started
