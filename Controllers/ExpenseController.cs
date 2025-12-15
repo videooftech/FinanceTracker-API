@@ -7,7 +7,7 @@ namespace FinanceTracker.Api.Controllers
     [Route("api/[controller]")]
     public class ExpenseController : ControllerBase
     {
-        private static readonly List<Expense> _expenses = new()
+        public static readonly List<Expense> _expenses = new()
         {
             new Expense { Id = 1, Category = "Food", Amount = 300, Date = DateTime.Now.AddDays(-1) },
             new Expense { Id = 2, Category = "Transport", Amount = 120, Date = DateTime.Now.AddDays(-2) }

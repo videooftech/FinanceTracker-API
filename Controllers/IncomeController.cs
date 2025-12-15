@@ -7,7 +7,7 @@ namespace FinanceTracker.Api.Controllers
     [Route("api/[controller]")]
     public class IncomeController : ControllerBase
     {
-        private static readonly List<Income> _incomes = new()
+        public static readonly List<Income> _incomes = new()
         {
             new Income { Id = 1, Source = "Salary", Amount = 50000, Date = DateTime.Now.AddDays(-5) },
             new Income { Id = 2, Source = "Freelancing", Amount = 12000, Date = DateTime.Now.AddDays(-2) }
