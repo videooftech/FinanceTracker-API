@@ -33,5 +33,29 @@ namespace FinanceTracker.Api.Controllers
 
             return Ok(income);
         }
+
+        [HttpPut("{id}")]
+        public IActionResult UpdateIncome(int id, Income updatedIncome)
+        {
+            var income = _incomes.FirstOrDefault(x => x.Id == id);
+            if (income == null)
+                return NotFound("Income not found");
+            income.Source = updatedIncome.Source;
+            income.Amount = updatedIncome.Amount;
+            income.Date = updatedIncome.Date;
+
+            return Ok(income);
+        }
+
+        [HttpDelete("{id}")]
+        public IActionResult DeleteIncome(int id)
+        {
+            var income = _incomes.FirstOrDefault(x => x.Id == id);
+            if (income == null)
+                return NotFound("Income not found");
+
+            _incomes.Remove(income);
+            return Ok(new { message = "Income deleted" });
+        }
     }
 }

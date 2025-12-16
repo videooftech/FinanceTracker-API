@@ -30,5 +30,31 @@ namespace FinanceTracker.Api.Controllers
 
             return Ok(expense);
         }
+    
+        [HttpPut("{id}")]
+        public IActionResult UpdateExpense(int id, Expense updatedExpense)
+        {
+            var expense = _expenses.FirstOrDefault(x => x.Id == id);
+            if (expense == null)
+                return NotFound("Expense not found");
+
+            expense.Category = updatedExpense.Category;
+            expense.Amount = updatedExpense.Amount;
+            expense.Date = updatedExpense.Date;
+
+            return Ok(expense);
+}
+
+        [HttpDelete("{id}")]
+        public IActionResult DeleteExpense(int id)
+        {
+            var expense = _expenses.FirstOrDefault(x => x.Id == id);
+            if (expense == null)
+                return NotFound("Expense not found");
+
+            _expenses.Remove(expense);
+             return Ok(new { message = "Expense deleted" });
+        }
+    
     }
 }
