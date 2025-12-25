@@ -9,8 +9,8 @@ namespace FinanceTracker.Api.Controllers
     {
         public static readonly List<Income> _incomes = new()
         {
-            new Income { Id = 1, Source = "Salary", Amount = 50000, Date = DateTime.Now.AddDays(-5) },
-            new Income { Id = 2, Source = "Freelancing", Amount = 12000, Date = DateTime.Now.AddDays(-2) }
+            new Income { Id = 1, Source = "Job Salary", Category="Salary", Amount = 50000, Date = DateTime.Now.AddDays(-5) },
+            new Income { Id = 2, Source = "Freelancing", Category="Freelance", Amount = 12000, Date = DateTime.Now.AddDays(-2) }
         };
 
         [HttpGet]
@@ -41,6 +41,7 @@ namespace FinanceTracker.Api.Controllers
             if (income == null)
                 return NotFound("Income not found");
             income.Source = updatedIncome.Source;
+            income.Category = updatedIncome.Category;
             income.Amount = updatedIncome.Amount;
             income.Date = updatedIncome.Date;
 

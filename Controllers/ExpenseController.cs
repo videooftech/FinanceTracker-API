@@ -9,8 +9,8 @@ namespace FinanceTracker.Api.Controllers
     {
         public static readonly List<Expense> _expenses = new()
         {
-            new Expense { Id = 1, Category = "Food", Amount = 300, Date = DateTime.Now.AddDays(-1) },
-            new Expense { Id = 2, Category = "Transport", Amount = 120, Date = DateTime.Now.AddDays(-2) }
+            new Expense { Id = 1, title = "Hotel Dinner", Category = "Food", Amount = 300, Date = DateTime.Now.AddDays(-1) },
+            new Expense { Id = 2, title = "Transport to Mumbai", Category = "Transport", Amount = 120, Date = DateTime.Now.AddDays(-2) }
         };
 
         [HttpGet]
@@ -38,6 +38,7 @@ namespace FinanceTracker.Api.Controllers
             if (expense == null)
                 return NotFound("Expense not found");
 
+            expense.title = updatedExpense.title;
             expense.Category = updatedExpense.Category;
             expense.Amount = updatedExpense.Amount;
             expense.Date = updatedExpense.Date;

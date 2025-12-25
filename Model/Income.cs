@@ -4,7 +4,12 @@ namespace FinanceTracker.Api.Models
     {
         public int Id { get; set; }
         public string Source { get; set; } = string.Empty;
+
+        public string Category { get; set; }= string.Empty;
+        
         public decimal Amount { get; set; }
         public DateTime Date { get; set; }
+
+       
     }
 }
